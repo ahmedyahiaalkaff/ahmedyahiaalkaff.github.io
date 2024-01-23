@@ -1,6 +1,6 @@
 'use client';
 
-import {Navbar, NavbarProps, type Item} from '@ahmedalkaff/react-responsive-navbar';
+import {Navbar, type NavbarProps, type Item} from '@ahmedalkaff/react-responsive-navbar';
 import { SyntheticEvent, useEffect, useRef, useState } from 'react';
 import Switch from './Switch';
 import { useThemeContext } from '@/contexts/ThemeContext';

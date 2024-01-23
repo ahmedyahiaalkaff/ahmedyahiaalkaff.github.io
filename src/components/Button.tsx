@@ -1,10 +1,11 @@
 
-const Button = ({label, className, onClick}
+const Button = ({label, className, onClick, disabled}
   :
   {
     label:string,
     className?: string,
-    onClick?:React.MouseEventHandler
+    onClick?:React.MouseEventHandler,
+    disabled?: boolean
   }) => {
   return (
     <button
@@ -12,6 +13,7 @@ const Button = ({label, className, onClick}
                  pr-2 pl-2 bg-primary text-slate-50 hover:bg-opacity-50
                  active:bg-opacity-80 ${className?className:''}`}
       onClick={onClick}
+      disabled={disabled}
     >
       {label}
     </button>

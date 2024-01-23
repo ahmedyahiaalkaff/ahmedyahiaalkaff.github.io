@@ -1,5 +1,5 @@
 'use client';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import {useForm , SubmitHandler, UseFormRegisterReturn, FieldError} from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -10,7 +10,11 @@ import Button from './Button';
 const schema = yup.object({
   name: yup.string().required('Name is Required'),
   email: yup.string().email('Not a Valid Email').required('Email is Required'),
-  message: yup.string().min(10, 'Message Should be At least 10 Characters').required('Message is Required')
+  message: yup.string()
+              .min(10, 'Message Should be At least 10 Characters')
+              .max(255, 'Message Should not exceed 255 characters')
+              .required('Message is Required'),
+  access_key: yup.string().required()
 }).required();
 type FormData = yup.InferType<typeof schema>;
 
@@ -41,13 +45,46 @@ const FormField = ({fieldName, label, type, error, register, order, textArea, pl
 
 const ContactForm = () => {
 
-  const {register, handleSubmit,
-    formState: {errors}
+  const {register, handleSubmit, reset, 
+    formState: {errors, isSubmitting, isSubmitSuccessful}
     } = useForm<FormData>({
     resolver: yupResolver(schema),
   });
 
-  const onSubmit:SubmitHandler<FormData> = (data) => console.log(data);
+  const [message, setMessage] = useState('');
+  const [isError, setIsError] = useState(false);
+
+  const onSubmit:SubmitHandler<FormData> = (data, e) => {
+    setMessage('');
+    setIsError(false);
+    return new Promise(async (resolve, reject) => {
+      try{
+        const response = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json",
+          },
+          body: JSON.stringify(data, null, 2),
+        })
+        const json = await response.json();
+        if (json.success) {
+          e?.target.reset();
+          reset();
+          setMessage('Thank you For Contacting')
+          resolve(json.success);
+          setIsError(false);
+        } else {
+          setMessage(json.message);
+          resolve(json.message);
+          setIsError(true);
+        }
+      }catch(error:any){
+        resolve(error?.message);
+        setIsError(true);
+      }
+    });
+  }
 
 
   return (
@@ -58,7 +95,12 @@ const ContactForm = () => {
       {/* <button type="submit" className='col-start-1 col-span-4 border rounded-md p-1 max-w-32'>
         Submit
       </button> */}
-      <Button label='Submit' className='col-start-1 col-span-4'/>
+      <input type='checkbox' name='robot' defaultChecked={false} hidden/>
+      <input type="hidden" {...register('access_key')} value="f5a32584-04f0-4ae1-a925-8429eb3865e3"></input>
+      <Button label='Submit' className='col-start-1 col-span-4 disabled:bg-gray-400' disabled={isSubmitting}/>
+      <div className={`col-start-1 col-span-4 ${isError?'text-red-500':''}`}>
+        <p>{message && message}</p>
+      </div>
     </form>
   );
 }
