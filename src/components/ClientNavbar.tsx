@@ -36,7 +36,7 @@ export default function ClientNavbar(props:NavbarProps){
       setTheme('light');
     }
     loadingBar.current?.classList.remove('animate-pulse')
-  }, []);
+  }, [setTheme]);
 
   useEffect(() => {
     const handleScroll = () => {

@@ -56,7 +56,7 @@ export default function Home() {
   return (
     <>
       <FullScreenSection id="home" className=' bg-gray-400 dark:bg-gray-700 flex flex-col md:flex-row justify-center items-center h-full pt-2 pb-2 scroll-mt-28'>
-        <Image src="/my-website/myPhoto2.JPG"
+        <Image src="/myPhoto2.JPG"
           alt="my photo"
           className='object-cover rounded-full h-72 w-72
                      mb-4 md:mr-4 border-2 border-black

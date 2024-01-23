@@ -1,7 +1,5 @@
 import Image, { ImageProps } from "next/image"
 
-
-
 const MyImage = (props:ImageProps) => {
 
   return (
