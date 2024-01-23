@@ -1,13 +1,18 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = () => {
-  return {
-    output: 'export',
-    basePath: '/my-website',
-    assetPrefix: '/my-website/',
-    images: {
-      unoptimized: true,
+
+const { PHASE_EXPORT } = require('next/constants')
+
+const nextConfig = (phase, {defaultConfig}) => {
+  if(phase === PHASE_EXPORT){
+    return {
+      output: 'export',
+      images: {
+        unoptimized: true,
+      },
+      // basePath: isProd?'/my-website':'',
     }
   }
+  return {}
 }
 
 module.exports = nextConfig
