@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@ahmedalkaff/react-responsive-navbar": "^1.0.1",
     "@hookform/resolvers": "^3.3.4",
     "@types/node": "20.6.4",
     "@types/react": "18.2.22",
