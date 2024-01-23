@@ -1,6 +1,7 @@
 'use client';
 
 import Link from "next/link"
+import Image from "next/image";
 import {useState } from "react";
 
 
@@ -25,7 +26,7 @@ export default function Header(){
   return (
     <header className="flex flex-row justify-between p-5 bg-red-100 items-center shadow-md">
       <a className="h-10 sm:h-14 w-10 sm:w-14">
-        <img src="" alt="logo" width="100%" height="150px"/>
+        {/* <Image src="" alt="logo" width="100%" height="150px"/> */}
       </a>
       <nav className={`${menuState} absolute p-5 sm:p-0 top-0 left-0 sm:static sm:block w-full h-full sm:h-auto sm:w-auto bg-gray-300 sm:bg-transparent`}>
         <div className="flex justify-end">

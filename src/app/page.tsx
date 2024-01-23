@@ -1,9 +1,9 @@
 
 import ContactForm from '@/components/ContactForm'
 import FullScreenSection from '@/components/FullScreenSection'
-import ProjectCard from '@/components/ProjectCard'
 import Projects from '@/components/Projects'
 import ContactButton from '@/components/ContactButton'
+import Image from 'next/image'
 
 const Heading = ({text}:{text:string}) => {
   return (
@@ -56,7 +56,14 @@ export default function Home() {
   return (
     <>
       <FullScreenSection id="home" className=' bg-gray-400 dark:bg-gray-700 flex flex-col md:flex-row justify-center items-center h-full pt-2 pb-2 scroll-mt-28'>
-        <img src="/myPhoto2.JPG" alt="my photo" className='object-cover rounded-full h-72 w-72 mb-4 md:mr-4 border-2 border-black dark:border-0'/>
+        <Image src="/my-website/myPhoto2.JPG"
+          alt="my photo"
+          className='object-cover rounded-full h-72 w-72
+                     mb-4 md:mr-4 border-2 border-black
+                    dark:border-0'
+          width={72}
+          height={72}
+        />
         <div className='flex flex-col gap-y-3 items-start'>
           <h1 className='text-5xl'>Ahmed Alkaf</h1>
           <p>
