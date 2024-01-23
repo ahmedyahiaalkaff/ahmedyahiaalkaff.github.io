@@ -6,6 +6,9 @@ export default function Dashboard(){
     <>
       <h1>Dashboard</h1>
       <Link href="/" className="rounded-xl bg-white text-black p-1 max-w-sm mx-auto">Back to Home</Link>
+      <div>
+        <a href="#" className=" block hover:scale-50">Test</a>
+      </div>
     </>
   );
 }
