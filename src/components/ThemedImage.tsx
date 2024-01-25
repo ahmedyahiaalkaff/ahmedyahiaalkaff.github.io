@@ -8,8 +8,14 @@ const ThemedImage = ({className, image, darkImage} : {className: string, image: 
   const imageSrc = darkImage ? (theme === 'dark' ? darkImage : image) : image;
   return (
     <>
-      {theme && <Image src={imageSrc} alt="project" className={className} width={400} height={400}/>}
-      {!theme && <Image src='/image_placeholder.png' alt="project" className={className} width={400} height={400}/>}
+      {darkImage ? 
+        (theme ? 
+          <Image src={imageSrc} alt="project" className={className} width={400} height={400}/>
+        :
+          <Image src='/image_placeholder.png' alt="project" className={className} width={400} height={400}/>
+        ):
+          <Image src={image} alt="project" className={className} width={400} height={400}/> 
+        }
     </>
   )
 }
