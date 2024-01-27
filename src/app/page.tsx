@@ -76,7 +76,7 @@ export default function Home() {
         <Heading text={'About Me'} />
         <div className='flex flex-row bas gap-x-3'>
           <div className='grow basis-0'>
-            <p className='mb-1'>I'm a Full Stack Developer with many years of experience in different Technical projects.</p>
+            <p className='mb-1'>I&apos;m a Full Stack Developer with many years of experience in different Technical projects.</p>
             <p className='mb-1'>Worked in developing projects in the Telecommunication industry, Oil and Gas industry and website and mobile development.</p>
             <p className='mb-1'>Worked with different languages and technologies such as Java, Javascript, Nodejs, Express, Next.js, React, Redux, React Native,
              Hibernate, Spring, PHP and others.</p>
