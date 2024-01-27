@@ -74,9 +74,17 @@ export default function Home() {
       </FullScreenSection>
       <FullScreenSection id="about" className='p-5 scroll-mt-28'>
         <Heading text={'About Me'} />
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam molestiae sequi, iusto excepturi mollitia temporibus quod, dolor soluta dolorum, possimus aspernatur commodi delectus maxime id consequatur tempore exercitationem rerum corrupti?
-        </p>
+        <div className='flex flex-row bas gap-x-3'>
+          <div className='grow basis-0'>
+            <p className='mb-1'>I'm a Full Stack Developer with many years of experience in different Technical projects.</p>
+            <p className='mb-1'>Worked in developing projects in the Telecommunication industry, Oil and Gas industry and website and mobile development.</p>
+            <p className='mb-1'>Worked with different languages and technologies such as Java, Javascript, Nodejs, Express, Next.js, React, Redux, React Native,
+             Hibernate, Spring, PHP and others.</p>
+            <p className='mb-1'>Worked with different database systems relational such as Oracle, MySql, Postgres and NoSql such as Mongodb.</p>
+            <p className='mb-1'>Passionate about solving different technical problems</p>
+          </div>
+          <div className='grow basis-0 hidden sm:block'></div>
+        </div>
 
       </FullScreenSection>
       <FullScreenSection id="projects" className='bg-gray-400 dark:bg-gray-700 p-5 scroll-mt-28'>
